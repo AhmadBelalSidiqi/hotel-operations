@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Employee {
@@ -8,8 +10,8 @@ public class Employee {
     private final String department;
     private final double payRate;
     private double hoursWorked;
-    private int punchIn;
-    private int punchOut;
+    private LocalDateTime punchIn;
+    private LocalDateTime punchOut;
 
     public Employee(int id, String name, String department, double payRate, double hoursWorked) {
         this.id = id;
@@ -41,24 +43,25 @@ public class Employee {
     }
 
     public void punchIn(int time ){
-        punchIn = time;
+        punchIn = LocalDateTime.of(LocalDate.now(),LocalTime.of(time,1,1));
     }
     public void punchOut(int time ){
-        punchOut = time;
-
-        this.hoursWorked += punchOut - punchIn;
+        punchOut = LocalDateTime.of(LocalDate.now(),LocalTime.of(time,1,1));;
+        double hour = punchOut.getHour()-punchIn.getHour();
+        double min = punchOut.getMinute()-punchIn.getMinute();
+        this.hoursWorked += (hour+(min/60));
 
     }
     public void punchTimeCard(int punchInTime , int punchOutTime){
-        this.punchIn=punchInTime;
-        this.punchOut=punchOutTime;
+        this.punchIn=LocalDateTime.of(LocalDate.now(),LocalTime.of(punchInTime,1,1));
+        this.punchOut=LocalDateTime.of(LocalDate.now(),LocalTime.of(punchOutTime,1,1));
     }
 
-    public int getPunchOut() {
+    public LocalDateTime getPunchOut() {
         return punchOut;
     }
 
-    public int getPunchIn() {
+    public LocalDateTime getPunchIn() {
         return punchIn;
     }
 
@@ -82,5 +85,7 @@ public class Employee {
         return hoursWorked;
     }
 
-
+    public void setPunchIn(LocalDateTime punchIn) {
+        this.punchIn = punchIn;
+    }
 }

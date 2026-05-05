@@ -1,20 +1,27 @@
 package com.pluralsight;
 
+import java.time.LocalDateTime;
+
 public class Reservation {
     private Room room;
     private final double price;
     private int numberOfNight;
     private boolean isWeekend;
     private final double reservationTotal;
+    private String roomType;
+
 
 
 
     public Reservation(Room room, int numberOfNight) {
         this.room = room;
+        this.roomType = this.room.getRoomType();
         this.numberOfNight = numberOfNight;
         this.isWeekend = false;
-        price = this.room.getPrice();
+        this.price = this.room.getPrice();
         this.reservationTotal = numberOfNight*price;
+        this.room.checkedIn();
+        this.room.isDirty=true;
     }
 
     public int getNumberOfNight() {
@@ -23,16 +30,16 @@ public class Reservation {
 
     public double getReservationTotal() {
         if (isWeekend)
-            return (numberOfNight*price)* 1.10;
-        return numberOfNight*price;
+            return reservationTotal * 1.10;
+        return reservationTotal;
     }
 
     public double getPrice() {
-        return price;
+        return this.room.getPrice();
     }
 
     public String getRoomType() {
-        return this.room.getRoomType();
+        return this.roomType;
     }
 
     public boolean isWeekend() {
@@ -46,4 +53,6 @@ public class Reservation {
     public void setIsWeekend(boolean weekend) {
         isWeekend = weekend;
     }
+
+
 }

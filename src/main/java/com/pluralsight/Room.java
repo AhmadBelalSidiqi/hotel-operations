@@ -9,7 +9,6 @@ public class Room {
 
     public Room(String roomType, int numberOfBeds) {
         this.numberOfBeds = numberOfBeds;
-        this.isDirty=false;
         this.isOccupied = true;
         if (roomType.equalsIgnoreCase("king")) {
             this.roomType="king";
@@ -37,10 +36,21 @@ public class Room {
     }
 
     public boolean isAvailable() {
-        return !isOccupied&&!isDirty;
+        return !isOccupied && !isDirty;
     }
 
     public String getRoomType() {
         return roomType;
+    }
+
+    public void checkedIn() {
+        this.isOccupied = true;
+    }
+    public void checkOut(){
+        this.isOccupied = false;
+        this.isDirty = true;
+    }
+    public void cleanRoom(){
+        this.isDirty = false;
     }
 }

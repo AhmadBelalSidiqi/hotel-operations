@@ -37,7 +37,7 @@ public class Room {
     }
 
     public boolean isAvailable() {
-        return !isOccupied;
+        return !isOccupied&&!isDirty;
     }
 
     public String getRoomType() {

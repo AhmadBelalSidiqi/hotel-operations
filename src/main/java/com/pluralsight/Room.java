@@ -8,11 +8,12 @@ public class Room {
     boolean isOccupied;
 
     public Room(String roomType, int numberOfBeds) {
-        this.roomType = roomType;
         this.numberOfBeds = numberOfBeds;
         if (roomType.equalsIgnoreCase("king")) {
+            this.roomType="king";
             this.price = 134;
         } else {
+            this.roomType = "double";
             this.price=124;
         }
         isDirty=false;

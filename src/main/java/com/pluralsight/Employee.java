@@ -7,6 +7,14 @@ public class Employee {
     private double payRate;
     private double hoursWorked;
 
+    public Employee(int id, String name, String department, double payRate, double hoursWorked) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.payRate = payRate;
+        this.hoursWorked = hoursWorked;
+    }
+
     public double getTotalPay() {
         if (hoursWorked <= 40) {
             return payRate * hoursWorked;

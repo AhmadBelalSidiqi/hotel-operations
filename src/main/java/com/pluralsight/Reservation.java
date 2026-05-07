@@ -1,14 +1,12 @@
 package com.pluralsight;
 
-import java.time.LocalDateTime;
 
 public class Reservation {
-    private Room room;
-    private final double price;
+    private final Room room;
     private int numberOfNight;
     private boolean isWeekend;
     private final double reservationTotal;
-    private String roomType;
+    private final String roomType;
 
 
 
@@ -18,8 +16,8 @@ public class Reservation {
         this.roomType = this.room.getRoomType();
         this.numberOfNight = numberOfNight;
         this.isWeekend = false;
-        this.price = this.room.getPrice();
-        this.reservationTotal = numberOfNight*price;
+        double price = this.room.getPrice();
+        this.reservationTotal = numberOfNight* price;
         this.room.checkedIn();
         this.room.isDirty=true;
     }
@@ -53,6 +51,5 @@ public class Reservation {
     public void setIsWeekend(boolean weekend) {
         isWeekend = weekend;
     }
-
 
 }

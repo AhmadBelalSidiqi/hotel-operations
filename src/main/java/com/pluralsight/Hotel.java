@@ -14,8 +14,6 @@ public class Hotel {
         this.numberOfRooms = numberOfRooms;
         this.bookedSuites = 0;
         this.bookedBasicRooms = 0;
-
-
     }
 
     public Hotel(String name, int numberOfSuites, int numberOfRooms, int bookedSuites, int bookedBasicRooms) {
@@ -24,7 +22,6 @@ public class Hotel {
         this.numberOfRooms = numberOfRooms;
         this.bookedSuites = bookedSuites;
         this.bookedBasicRooms = bookedBasicRooms;
-
     }
 
     public boolean bookRoom(int numberOfRooms, boolean isSuite) {
@@ -45,7 +42,6 @@ public class Hotel {
     }
 
     public int getAvailableRoom() {
-
         return this.numberOfRooms - this.bookedBasicRooms;
     }
 }

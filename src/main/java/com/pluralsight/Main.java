@@ -11,6 +11,15 @@ public class Main {
         reservationForZoe.setIsWeekend(true);
         System.out.println(reservationForZoe.getReservationTotal());
 
+        Hotel fiveStarHotel = new Hotel("fiveStar",5,10);
+        System.out.println(fiveStarHotel.getAvailableRoom());
+        System.out.println(fiveStarHotel.getAvailableSuites());
+        fiveStarHotel.bookRoom(2,false);
+        fiveStarHotel.bookRoom(2,true);
+        System.out.println(fiveStarHotel.getAvailableRoom());
+        System.out.println(fiveStarHotel.getAvailableSuites());
+
+
 
 
 

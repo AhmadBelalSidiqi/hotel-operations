@@ -43,7 +43,7 @@ public class Employee {
     }
 
     public void punchIn(int time ){
-        punchIn = LocalDateTime.of(LocalDate.now(),LocalTime.of(time,1,1));
+          punchIn = LocalDateTime.of(LocalDate.now(),LocalTime.of(time,1,1));
     }
     public void punchOut(int time ){
         punchOut = LocalDateTime.of(LocalDate.now(),LocalTime.of(time,1,1));;
